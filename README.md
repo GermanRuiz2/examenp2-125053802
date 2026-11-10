@@ -87,6 +87,8 @@ El script secuencial fue mucho más rápido que Hadoop MapReduce. Esto ocurre po
 
 ---
 ## Resultados Esperados
+
+
 Al finalizar la ejecución del pipeline, el resultado devuelto por la API en la ruta /resultados será una lista en formato JSON que contiene el ticket promedio de compra calculado para cada una de las 30 tiendas (desde la clave T001 hasta la T030), procesadas a partir del dataset de 5 millones de registros.
 Además de incluir nuestra inyección de una tienda T999.
 ---
