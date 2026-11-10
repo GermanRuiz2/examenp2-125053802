@@ -86,7 +86,7 @@ docker compose up -d
 El script secuencial fue mucho más rápido que Hadoop MapReduce. Esto ocurre porque procesar un archivo de 400 MB en una sola máquina con RAM suficiente es muy eficiente. Hadoop, en cambio, pues tarda mas en preparar el entorno, iniciar procesos de Java, asignar tareas y coordinarse, y ese tiempo extra de preparación hace que MapReduce en un archivo de gran tamaño termine siendo más lento. MapReduce realmente conviene cuando procesas cientos de Gigabytes o Terabytes que simplemente ahogarían la memoria RAM de una sola máquina.
 
 ---
-## Resultados Esperados:
+## Resultados Esperados
 Al finalizar la ejecución del pipeline, el resultado devuelto por la API en la ruta /resultados será una lista en formato JSON que contiene el ticket promedio de compra calculado para cada una de las 30 tiendas (desde la clave T001 hasta la T030), procesadas a partir del dataset de 5 millones de registros.
 Además de incluir nuestra inyección de una tienda T999.
 ---
