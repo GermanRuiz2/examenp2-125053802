@@ -1,0 +1,44 @@
+services:
+  hadoop:
+    build: ./hadoop
+    container_name: hadoop_examen
+    volumes:
+      - ./:/data/input/:ro
+      - ./mapreduce:/opt/mapreduce
+      - ssh_keys:/root/.ssh
+    networks:
+      - data_network
+
+  db:
+    image: postgres:15
+    container_name: postgres_examen
+    env_file: .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - data_network
+    ports:
+      - "5432:5432"
+
+  api:
+    build: ./api
+    container_name: api_examen
+    restart: on-failure # ¡La API se reiniciará sola si la BD tarda en arrancar!
+    depends_on:
+      - db
+      - hadoop 
+    ports:
+      - "5000:5000"
+    networks:
+      - data_network
+    env_file: .env
+    volumes:
+      - ssh_keys:/root/.ssh
+      - ./:/data/input/:ro
+
+networks:
+  data_network:
+
+volumes:
+  pgdata:
+  ssh_keys: # Volumen encargado de compartir la llave entre contenedores
