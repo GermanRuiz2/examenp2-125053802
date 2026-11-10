@@ -86,6 +86,25 @@ docker compose up -d
 El script secuencial fue mucho más rápido que Hadoop MapReduce. Esto ocurre porque procesar un archivo de 400 MB en una sola máquina con RAM suficiente es muy eficiente. Hadoop, en cambio, pues tarda mas en preparar el entorno, iniciar procesos de Java, asignar tareas y coordinarse, y ese tiempo extra de preparación hace que MapReduce en un archivo de gran tamaño termine siendo más lento. MapReduce realmente conviene cuando procesas cientos de Gigabytes o Terabytes que simplemente ahogarían la memoria RAM de una sola máquina.
 
 ---
+## Evidencias Gráficas
+
+**1. Versión de Hadoop**
+Demostración de que el contenedor instaló correctamente el entorno de Java y la versión 3.3.6 de Hadoop solicitada.
+![Hadoop Version](evidencias/Evid2_EjecucionHadoop.png)
+
+**2. Salida del Job (MapReduce)**
+Ejecución exitosa del script analítico procesando los 5 millones de registros y mostrando el tiempo total de procesamiento.
+![Salida del Job](evidencias/Evid3_TiempoMapReduce_Hadoop.png)
+
+**3. Conexión SSH sin contraseña**
+Comprobación de que el contenedor de la API logró autenticarse en el contenedor de Hadoop mediante volúmenes de llaves RSA, sin requerir intervención manual.
+![SSH sin contraseña](evidencias/Evid5_Conexion_SSH_API_HADOOP.png)
+
+**4. Respuesta de la API**
+Validación final de la integración: Los datos procesados por Hadoop y almacenados en PostgreSQL son expuestos exitosamente en formato JSON a través de Flask.
+![Respuesta API](evidencias/Evid7_Localhost_Resultados.png)
+
+---
 
 ## TEORIA: Resolución de Preguntas:
 
